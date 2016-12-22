@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.anilrahman.parceldelivery">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".driver.DriverMenu"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".recipient.RecipientMenu"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".driver.CheckDeliveries"
+            android:parentActivityName=".driver.DriverMenu"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".driver.DriverMenu" />
+        </activity>
+        <activity
+            android:name=".driver.DeliverParcel"
+            android:parentActivityName=".driver.DriverMenu"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".driver.DriverMenu" />
+        </activity>
+        <activity
+            android:name=".recipient.BookCollection"
+            android:parentActivityName=".recipient.RecipientMenu"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".recipient.RecipientMenu" />
+        </activity>
+        <activity
+            android:name=".recipient.BookCollectionDay"
+            android:parentActivityName=".recipient.RecipientMenu"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".recipient.RecipientMenu" />
+        </activity>
+        <activity
+            android:name=".recipient.ViewBookedCollections"
+            android:parentActivityName=".recipient.RecipientMenu"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".recipient.RecipientMenu" />
+        </activity>
+        <activity
+            android:name=".recipient.TrackParcelList"
+            android:parentActivityName=".recipient.RecipientMenu"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".recipient.RecipientMenu" />
+        </activity>
+        <activity
+            android:name=".recipient.TrackParcel"
+            android:parentActivityName=".recipient.TrackParcelList"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".recipient.TrackParcelList" />
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"></activity>
+    </application>
+
+</manifest>
