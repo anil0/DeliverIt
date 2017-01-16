@@ -14,9 +14,11 @@ import android.widget.Toast;
 import com.example.anilrahman.parceldelivery.MainActivity;
 import com.example.anilrahman.parceldelivery.Parcel;
 import com.example.anilrahman.parceldelivery.R;
+import com.example.anilrahman.parceldelivery.service.GetData;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by anilrahman on 05/12/2016.
@@ -25,9 +27,32 @@ import java.util.List;
 public class TrackParcelList extends AppCompatActivity {
     final static List<Parcel> parcelsList = new ArrayList<>();
     final List<Parcel> parcelListFiltered = new ArrayList<>();
-
+    final static List<Parcel> parcelArrayList = new ArrayList<>();
     static
     {
+        //Get parcels from WebService instead of hardcoded
+        //GetData getParcelData = new GetData();
+        try
+        {
+            String str = new GetData().execute().get();
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+        catch (ExecutionException e)
+        {
+            e.printStackTrace();
+        }
+        // Starts task > webservice > gets the data > parses data > static array
+
+        for (Parcel parcel: GetData.getArrayList())
+        {
+            System.out.println(parcel.toString());
+            parcelArrayList.add(parcel);
+        }
+        GetData.getArrayList().clear();
+
         parcelsList.add(new Parcel("test", "2 Sage Cl, Stoke-on-Trent ST1 3SF, UK", "32 inch TV"));
         parcelsList.add(new Parcel("anil", "94 Upper Hillchurch St, Stoke-on-Trent ST1 2HG, UK", "Gaming PC Desktop"));
         parcelsList.add(new Parcel("test", "2 Sage Cl, Stoke-on-Trent ST1 3SF, UK", "Dual Pack fans Corsair"));
@@ -57,7 +82,7 @@ public class TrackParcelList extends AppCompatActivity {
         // Create a List from String Array elements
 
 
-        for(Parcel parcel : parcelsList)
+        for(Parcel parcel : parcelArrayList)
         {
             if(parcel.getUsername().equals(MainActivity.getUsernameField().getText().toString()))
             {

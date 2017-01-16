@@ -9,6 +9,8 @@ public class Parcel {
     private String address;
     private String productName;
 
+    public Parcel(){}
+
     public Parcel(String username, String address, String productName) {
         this.username = username;
         this.address = address;

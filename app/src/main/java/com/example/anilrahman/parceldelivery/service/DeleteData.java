@@ -2,11 +2,7 @@ package com.example.anilrahman.parceldelivery.service;
 
 import android.os.AsyncTask;
 
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -29,9 +25,6 @@ public class DeleteData extends AsyncTask<String, String, String>
                 URL url = new URL(uri);
 
                 deleteData(url, builder);
-//                postData(url, builder);//d is data object
-//                putData(url, builder);
-//                deleteData(url, builder);
 
                 return builder.toString(); //this builder is the result passed to the onPostExecute which is printing it
             }

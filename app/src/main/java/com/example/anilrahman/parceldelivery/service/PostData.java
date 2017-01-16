@@ -2,10 +2,10 @@ package com.example.anilrahman.parceldelivery.service;
 
 import android.os.AsyncTask;
 
+import com.example.anilrahman.parceldelivery.Collection;
+
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -14,13 +14,12 @@ import java.net.URL;
  * Created by anilrahman on 02/12/2016.
  */
 
-public class PostData extends AsyncTask<String, String, String>
+public class PostData extends AsyncTask<Collection, String, String>
 {
         @Override
-        protected String doInBackground(String... params)
+        protected String doInBackground(Collection... params)
         {
-            //String uri = "http://10.0.2.2:9998/helloworld";
-            String uri = "http://10.4.151.23:9998/helloworld";
+            String uri = "http://10.0.2.2:9998/parcel";
             StringBuilder builder = new StringBuilder();
 
             System.out.println("ENTERED DO IN BACKGROUND");
@@ -28,28 +27,28 @@ public class PostData extends AsyncTask<String, String, String>
             {
                 URL url = new URL(uri);
 
-                postData(url, builder);
-//                postData(url, builder);//d is data object
-//                putData(url, builder);
-//                deleteData(url, builder);
+                postData(url, builder, params[0]);
 
-                return builder.toString(); //this builder is the result passed to the onPostExecute which is printing it
+                return null;//builder.toString(); //this builder is the result passed to the onPostExecute which is printing it
             }
             catch (Exception e)
             {
                 e.printStackTrace();
-                return e.getMessage();
+                return null;//e.getMessage();
             }
-            //return builder.toString();
         }
 
-        private void postData(URL url, StringBuilder builder) throws Exception
+        private void postData(URL url, StringBuilder builder, Collection collectionObj) throws Exception
         {
             builder.append("Posting data...\n");
 
             //create a new json object to post and format it
             JSONObject obj = new JSONObject();
-            obj.put("data", "Hello, how are you?");
+            obj.put("ParcelName",collectionObj.getParcel().getProductName());
+            obj.put("Username",collectionObj.getParcel().getUsername());
+            obj.put("Address",collectionObj.getParcel().getAddress());
+            obj.put("CollectionDate",collectionObj.getCollectionDate());
+
             String jsonStr = obj.toString(2);
             builder.append(jsonStr + "\n");
 

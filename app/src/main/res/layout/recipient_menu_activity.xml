@@ -22,43 +22,57 @@
 
     <Button
         android:text="Book a collection"
-        android:layout_width="368dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/btnBookCollection"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        android:layout_marginTop="8dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
         android:layout_marginStart="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginEnd="8dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="25dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:text="parcels to collect"
-        android:layout_width="368dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/btnCollectParcel"
-        tools:layout_editor_absoluteX="8dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/btnBookCollection"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnBookCollection" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBookCollection"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/btnBookCollection" />
 
     <Button
         android:text="Track a parcel"
-        android:layout_width="367dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/btnTrackParcel"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/btnCollectParcel"
-        android:layout_marginStart="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
         android:text="Logout"
-        android:layout_width="368dp"
+        android:layout_width="0dp"
         android:layout_height="49dp"
-        tools:layout_editor_absoluteX="8dp"
         android:id="@+id/btnRecipientLogout"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnTrackParcel" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/btnCollectParcel"
+        android:layout_marginTop="64dp"
+        app:layout_constraintTop_toBottomOf="@+id/btnCollectParcel"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/btnCollectParcel" />
 </android.support.constraint.ConstraintLayout>

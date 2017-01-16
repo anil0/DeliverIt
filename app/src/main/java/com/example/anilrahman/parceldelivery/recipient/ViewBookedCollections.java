@@ -1,7 +1,5 @@
 package com.example.anilrahman.parceldelivery.recipient;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -12,12 +10,9 @@ import com.example.anilrahman.parceldelivery.Item;
 import com.example.anilrahman.parceldelivery.R;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static java.security.AccessController.getContext;
 
 /**
  * Created by anilrahman on 02/12/2016.
@@ -48,6 +43,18 @@ public class ViewBookedCollections extends AppCompatActivity {
 
         // DataBind ListView with items from ArrayAdapter
         listView.setAdapter(arrayAdapter);
+
+//        listView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                Intent intent = new Intent( getApplicationContext(), EditCollection.class );
+////                intent.putExtra( "ProductName", product.getProductName() );
+////                intent.putExtra("Username", product.getUsername());
+////                intent.putExtra("Parcel",jsonParcelObject.toString());
+//                startActivity( intent );
+//            }
+//        });
 
     }
 
